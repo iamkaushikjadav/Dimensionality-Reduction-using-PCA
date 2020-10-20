@@ -1,0 +1,18 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.io import loadmat
+from sklearn.preprocessing import StandardScaler
+from sklearn.decomposition import PCA
+sc = StandardScaler()
+pca=PCA()
+def dimensionality_reduction_pca(x,y,z):
+	data=loadmat(x)
+	data=data['neural']
+	data=np.reshape(data,(y,z))
+	scale=sc.fit_transform(data)
+	dimenred=pca.fit_transform(scale)
+	explained_variance=pca.explained_variance_ratio_
+	plt.plot(explained_variance)
+	plt.show()
+dimensionality_reduction_pca('firstset',74277,200)
+dimensionality_reduction_pca('secondset',97524,210)
