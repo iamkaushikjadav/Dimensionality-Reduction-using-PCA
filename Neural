@@ -1,16 +1,16 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.io import loadmat
+from sklearn.preprocessing import StandardScaler
+sc = StandardScaler()
+from sklearn.decomposition import PCA
+pca=PCA()
 data1=loadmat('firstset')
 firstset=data1['neural']
 firstset=np.reshape(firstset,(74277,200))
 data2=loadmat('secondset')
 secondset=data2['neural']
 secondset=np.reshape(secondset,(97524,210))
-from sklearn.preprocessing import StandardScaler
-sc = StandardScaler()
-from sklearn.decomposition import PCA
-pca=PCA()
 def dimensionality_reduction_pca(x):
 	scale=sc.fit_transform(x)
 	dimenred=pca.fit_transform(scale)
