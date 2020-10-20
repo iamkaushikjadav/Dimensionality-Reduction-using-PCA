@@ -2,8 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.io import loadmat
 from sklearn.preprocessing import StandardScaler
-sc = StandardScaler()
 from sklearn.decomposition import PCA
+sc = StandardScaler()
 pca=PCA()
 data1=loadmat('firstset')
 firstset=data1['neural']
