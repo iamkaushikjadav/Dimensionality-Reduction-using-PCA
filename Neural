@@ -6,8 +6,8 @@ from sklearn.decomposition import PCA
 sc = StandardScaler()
 pca=PCA()
 def dimensionality_reduction_pca(x,y,z):
-	data=loadmat(x)
-	data=data['neural']  #importing data
+	data=loadmat(x) #importing data
+	data=data['neural']  
 	data=np.reshape(data,(y,z))
 	scale=sc.fit_transform(data)
 	dimenred=pca.fit_transform(scale)
